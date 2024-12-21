@@ -1292,6 +1292,7 @@ dl {
 
 /* Actions */
 ul.actions {
+  justify-content: space-evenly;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
