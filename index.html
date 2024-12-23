@@ -95,8 +95,30 @@
 									<header class="major">
 										<h2>Projects</h2>
 									</header>
+									<article>
+										<p>Check out some of my projects! Below you can find a summary of projects 
+											that I either have completed or are in progress. I've worked on a bunch of 
+											projects spanning a lot of topics, from machine learning to embedded
+											projects. Filter by technology or concept using the dropdowns.
+										</p>
+									</article>
+									<div class="filter-container" >
+										<select id="techFilter">
+										  <option value="">Filter by Technology</option>
+										  <option value="ml">Machine Learning</option>
+										  <option value="web">Web Development</option>
+										  <option value="embedded">Embedded Systems</option>
+										</select>
+										
+										<select id="conceptFilter">
+										  <option value="">Filter by Concept</option>
+										  <option value="ai">Artificial Intelligence</option>
+										  <option value="iot">Internet of Things</option>
+										  <option value="frontend">Frontend Development</option>
+										</select>
+									</div>
 									<div class="posts">
-										<article>
+										<article data-tech="ml" data-concept="iot">
 											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
 											<h3>Interdum aenean</h3>
 											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
@@ -104,7 +126,7 @@
 												<li><a href="#" class="button">More</a></li>
 											</ul>
 										</article>
-										<article>
+										<article data-tech="web" data-concept="ai">
 											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 											<h3>Nulla amet dolore</h3>
 											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
@@ -146,7 +168,51 @@
 										</article>
 									</div>
 								</section>
-
+								<script>
+									const techFilter = document.getElementById('techFilter');
+									const conceptFilter = document.getElementById('conceptFilter');
+									const articles = document.querySelectorAll('.posts article');
+								
+									function updateFilters() {
+									  const selectedTech = techFilter.value;
+									  const selectedConcept = conceptFilter.value;
+								
+									  articles.forEach(article => {
+										// Remove all previous filter classes
+										article.classList.remove('tech-ml', 'tech-web', 'tech-embedded', 
+															   'concept-ai', 'concept-iot', 'concept-frontend',
+															   'hidden');
+								
+										const articleTech = article.getAttribute('data-tech');
+										const articleConcept = article.getAttribute('data-concept');
+										
+										let matches = true;
+										
+										// Check if article matches selected filters
+										if (selectedTech && articleTech !== selectedTech) {
+										  matches = false;
+										}
+										if (selectedConcept && articleConcept !== selectedConcept) {
+										  matches = false;
+										}
+								
+										// Apply appropriate classes based on matches
+										if (matches) {
+										  if (selectedTech) {
+											article.classList.add(`tech-${selectedTech}`);
+										  }
+										  if (selectedConcept) {
+											article.classList.add(`concept-${selectedConcept}`);
+										  }
+										} else {
+										  article.classList.add('hidden');
+										}
+									  });
+									}
+								
+									techFilter.addEventListener('change', updateFilters);
+									conceptFilter.addEventListener('change', updateFilters);
+								</script>
 						</div>
 					</div>
 

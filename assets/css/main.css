@@ -27,6 +27,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
+article {
+  transition: background-color 0.3s ease;
+}
 body {
   line-height: 1; }
 
@@ -2272,3 +2275,17 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+
+.filter-container {
+  margin-bottom: 2rem;
+  justify-content: space-evenly;
+  display: flex;
+  gap: 1rem;
+}
+
+.tech-ml { background-color: #e3f2fd; }
+.tech-web { background-color: #f3e5f5; }
+.tech-embedded { background-color: #e8f5e9; }
+.concept-ai { background-color: #fff3e0; }
+.concept-iot { background-color: #fce4ec; }
+.concept-frontend { background-color: #e0f2f1; }
