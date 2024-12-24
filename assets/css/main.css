@@ -5,6 +5,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -28,6 +29,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 article {
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease;
 }
 body {
@@ -1356,7 +1359,7 @@ ul.icons {
     ul.icons li .icon {
       color: inherit; }
       ul.icons li .icon:before {
-        font-size: 1.25em; }
+        font-size: 2.5em; }
 
 /* Contact */
 ul.contact {
@@ -2081,7 +2084,10 @@ button,
   display: flex;
   border-bottom: solid 5px #f56a6a;
   padding: 6em 0 1em 0;
-  position: relative; }
+  position: sticky; /* Change from relative to sticky */
+  top: 0; /* Add this to make it stick to top */
+  background-color: #fff; /* Add background color to ensure content doesn't show through */
+  z-index: 1000; }
   #header > * {
     -moz-flex: 1;
     -webkit-flex: 1;
@@ -2092,12 +2098,12 @@ button,
     border-bottom: 0;
     color: inherit;
     font-family: "Roboto Slab", serif;
-    font-size: 1.125em; }
+    font-size: 1.75em; }
   #header .icons {
     text-align: right; }
   @media screen and (max-width: 1680px) {
     #header {
-      padding-top: 5em; } }
+      padding-top: 1em; } }
   @media screen and (max-width: 736px) {
     #header {
       padding-top: 6.5em; }
@@ -2110,6 +2116,11 @@ button,
         position: absolute;
         right: -0.5em;
         top: 0; } }
+/* Add this to adjust padding when scrolling */
+.scrolled #header {
+  padding: 2em 0 1em 0; /* Reduced top padding when scrolled */
+}
+
 
 /* Banner */
 #banner {
@@ -2283,9 +2294,28 @@ button,
   gap: 1rem;
 }
 
-.tech-ml { background-color: #e3f2fd; }
-.tech-web { background-color: #f3e5f5; }
-.tech-embedded { background-color: #e8f5e9; }
-.concept-ai { background-color: #fff3e0; }
-.concept-iot { background-color: #fce4ec; }
-.concept-frontend { background-color: #e0f2f1; }
+.matched {
+  background-color: #e3f2fd;
+}
+
+.hidden {
+  opacity: 0.5;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #f56a6a; /* Optional: adds a border */
+}
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
