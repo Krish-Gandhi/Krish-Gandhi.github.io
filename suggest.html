@@ -27,7 +27,7 @@
 										<img src="https://media.licdn.com/dms/image/v2/D5603AQG09aluLKyvTQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724624733930?e=1740614400&v=beta&t=dv2iKSWHsni6su6mk8F1J5Pw-hRcxTKiVH5AbcCiU_0" alt="Krish Gandhi" >
 									</a>
 								  </div>
-								  <a href="index.html" class="logo"><strong>Krish Gandhi</strong> Page Name</a>
+								  <a href="index.html" class="logo"><strong>Krish Gandhi</strong> Suggest A Project</a>
 								</div>
 								<ul class="icons">
 								  <li><a href="https://www.linkedin.com/in/krish-gandhi-73b47a244/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
@@ -96,80 +96,18 @@
 						</div>
 					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li>
-											<span class="opener">Projects</span>
-											<ul>
-												<li><a href="#">Portfolio Website</a></li>
-												<li><a href="#">Doodle Jump on an FPGA</a></li>
-												<li><a href="#">Automatic Algorithm Trading Strategy Backtesting Pipeline</a></li>
-												<li><a href="#">Virtual Whiteboard</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">Projects Coming Soon</span>
-											<ul>
-												<li><a href="#">Multi-Exchange Arbitrage System -- COMING SOON</a></li>
-												<li><a href="#">Multi-Lingual Translator and Summarizer -- COMING SOON</a></li>
-												<li><a href="#">MS Paint (collaborative and with AI drawing) -- COMING SOON</a></li>
-												<li><a href="#">Visualization of Different Machine Learning Algos (Linear Regression, etc) -- COMING SOON</a></li>
-												<li><a href="#">Retrieval-Augmented Generation Pipeline To Football Film Analyzer -- COMING SOON</a></li>
-												<li><a href="#">Easy Algorithmic Trading Strategy Tester/Builder -- COMING SOON</a></li>
-												<li><a href="#">Event-Driven Order Matching Engine -- COMING SOON</a></li>
-												<li><a href="#">Online Poker Bot -- COMING SOON</a></li>
-												<li><a href="#">Stock Ticker Analysis -- COMING SOON</a></li>
-												<li><a href="#">Data Feed Arbitrage -- COMING SOON</a></li>
-												<li><a href="#">Sports Betting Arbitrage Strategy -- COMING SOON</a></li>
-												<li><a href="#">Signal Processing Calculator -- COMING SOON</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Suggest a Project</a></li>
-										<li><a href="#">About Me</a></li>
-									</ul>
-								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Academic & Professional</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="files/Krish_Gandhi_Resume.pdf" class="image"><img src="images/resume_preview.jpg" alt="" /></a>
-											<p>Here's an updated copy of my resume. Click the image to view it!</p>
-											<p>Last Updated: Oct 2024</p>
-										</article>
-
-										<article>
-											<a href="files/Krish_Gandhi_Transcript.pdf" class="image"><img src="images/transcript_preview.jpg" alt=""/></a>
-											<p>Here's an updated copy of my UIUC transcript. Click the image to view it!</p>
-											<p>Last Updated: Sept 2024</p>
-										</article>
-									</div>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Contact Information</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:kjg2352@gmail.com">kjg2352@gmail.com</a></li>
-										<li class="icon solid fa-phone">(224) 334-4525</li>
-										<li class="icon brands fa-linkedin"> <a href="https://www.linkedin.com/in/krish-gandhi-73b47a244/">LinkedIn</a> </li>
-									</ul>
-								</section>
-						</div>
-					</div>
+					<div id="sidebar-container"></div>
+					<script>
+						fetch('sidebar.html')
+							.then(response => response.text())
+							.then(data => {
+								document.getElementById('sidebar-container').innerHTML = data;
+								// Re-initialize the main.js functionality after loading the sidebar
+								var script = document.createElement('script');
+								script.src = 'assets/js/main.js';
+								document.body.appendChild(script);
+							});
+					</script>
 
 			</div>
 
