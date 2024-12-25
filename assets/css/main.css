@@ -1591,7 +1591,7 @@ button,
 .mini-posts article {
   border-top: solid 1px rgba(210, 215, 217, 0.75);
   margin-top: 2em;
-  padding-top: 2em; }
+   }
   .mini-posts article .image {
     display: block;
     margin: 0 0 1.5em 0; }
