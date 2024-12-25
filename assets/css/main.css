@@ -2074,7 +2074,10 @@ button,
         left: 1em;
         position: absolute;
         top: 1em;
-        width: 5em; } }
+        width: 5em; } }      
+      #sidebar .inner[style*="position: fixed"] {
+          background: #f5f6f7; 
+      }
 
 /* Header */
 #header {
