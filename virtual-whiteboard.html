@@ -43,26 +43,29 @@
                                         <p>
                                             <strong>Inspiration:</strong> The idea for this project 
                                             came to me while I was on a video call. I was trying to 
-                                            explain a math problem to a friend and I held my 
-                                            scratch paper up to the camera to show them how I solved it.
-                                            I quickly realized my pencil markings were too light to be 
-                                            visible on the camera. I decided this would be a fun solution.
+                                            explain how to do a Fourier transform to a friend and I 
+                                            tried to use a dry erase whiteboard to show them how I solved it.
+                                            I quickly realized that the glare was too much and my writing was
+                                            to small to be visible on the camera. I decided this would be a fun solution.
                                             This was also vaguely inspired from a video I remember seeing
                                             when I was young about Pranav Mistry's SixthSense.
                                         </p>
                                         <p>
-                                            <strong>Tech Stack:</strong> Python (OpenCV, Mediapipe)
+                                            <strong>Tech Stack:</strong> Python (OpenCV, Mediapipe, numpy)
                                         </p>
                                         <p>
-                                            Nunc lacinia ante nunc ac lobortis. 
-                                            Interdum adipiscing gravida odio porttitor sem non 
-                                            mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
-                                            Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
-                                            integer ornare praesent commodo adipiscing arcu in massa commodo 
-                                            lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
-                                            viverra nibh in adipiscing blandit tempus accumsan.
+                                            This program utilizes your device's camera to mimic 
+                                            a digital whiteboard. When running, the user can fully 
+                                            control the program thru their device's camera by putting 
+                                            their hands in view of the camera and making certain gestures.
+                                            For optimal hand detection, when trying to perform a gesture, 
+                                            try to have your entire hand in frame with your palm directly 
+                                            facing the camera. Performance is limited by your device's performance 
+                                            because this program runs frame by frame. As a result, lines 
+                                            may not appear continuous if you move your hands too fast. 
+                                            For optimal results, move your hand slowly to match your device's FPS.
                                         </p>
-                                        <p><strong>Source Code: </strong><a href="" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+                                        <p><strong>Source Code: </strong><a href="https://github.com/Krish-Gandhi/VirtualWhiteboard" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
                                     </div>
                                     <div class="col-6 col-12-small">
                                         <video width="560" height="420" controls>
@@ -75,16 +78,28 @@
                                 <h3>Features</h3>
                                 <p>
                                     <ul>
-                                        <li><strong>Hand Movement/Postiion Tracking</strong> - </li>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
+                                        <li><strong>Hand Movement/Position Tracking</strong> - Utilizing Mediapipe and OpenCV, I was able to
+                                            use the user's device's camera to track the user's hands. 
+                                        </li>
+                                        <li><strong>Draw</strong> - When the user touches their thumb and pointer fingers, 
+                                            the thumb landmark will turn blue. The thumb landmark will then leave a blue dot
+                                            wherever it does.
+                                        </li>
+                                        <li><strong>Erase</strong> - When the user touches their thumb and pinky fingers,
+                                            the thumb landmark will turn green and a countdown will begin. If the countdown
+                                            reaches zero, all drawn dots will be erased.
+                                        </li>
+                                        <li><strong>Exit</strong> - When the user touches their thumb and ring fingers,
+                                            the thumb landmark will turn red and a countdown will begin. If the countdown
+                                            reaches zero, the program will close.
+                                        </li>
                                     </ul>
                                 </p>
                                 <h3>Design Decisions</h3>
                                 <p>
-                                    Nunc lacinia ante nunc ac lobortis. 
-                                    Interdum adipiscing gravida odio porttitor sem non 
-                                    mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
+                                    I decided to make the thumb the center of all functionality
+                                    because every other finger easily accessible to it.  
+                                    aucibus ornare mi ut ante amet placerat aliquet. 
                                     Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
                                     integer ornare praesent commodo adipiscing arcu in massa commodo 
                                     lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
@@ -92,13 +107,11 @@
                                 </p>
                                 <h3>Possible Future Updates</h3>
                                 <p>
-                                    Nunc lacinia ante nunc ac lobortis. 
-                                    Interdum adipiscing gravida odio porttitor sem non 
-                                    mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
-                                    Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
-                                    integer ornare praesent commodo adipiscing arcu in massa commodo 
-                                    lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
-                                    viverra nibh in adipiscing blandit tempus accumsan.
+                                    <ul>
+                                        <li><strong>Undo</strong> - Undo the previous draw</li>
+                                        <li><strong>Change Draw Color</strong> - Change the color for future drawing</li>
+                                        <li><strong>Change Draw Radius</strong> - Change the radius of future dots drawn</li>
+                                    </ul>
                                 </p>
                             </section>
 						</div>
