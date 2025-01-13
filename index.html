@@ -56,8 +56,31 @@
 									</ul>
 								</div>
 								<span class="image object">
-									<a><img src="" alt="Slideshow of all project photos" /></a>
+									<img id="slideshow" src="" alt="Slideshow of all project photos" />
 								</span>
+								
+								<script>
+									// Array of image paths
+									const images = [
+										'/images/previews/doodleJump.png',
+										'/images/previews/translatorAndSummarizer.png',
+										'/images/previews/autoBacktest.png',
+										'/images/previews/sshServer.png',
+										'/images/previews/virtualWhiteboard.png'
+									];
+								
+									let currentImageIndex = 0;
+									const slideshowImage = document.getElementById('slideshow');
+								
+									function changeImage() {
+										slideshowImage.src = images[currentImageIndex];
+										currentImageIndex = (currentImageIndex + 1) % images.length;
+									}
+								
+									// Change image every 3 seconds (3000 milliseconds)
+									changeImage(); // Show first image immediately
+									setInterval(changeImage, 1500);
+								</script>
 							</section>
 
 							<!-- Section -->
