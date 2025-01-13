@@ -8,7 +8,7 @@
 		<title>Krish Gandhi - Portfolio Website</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
@@ -27,7 +27,7 @@
 										<img src="https://media.licdn.com/dms/image/v2/D5603AQG09aluLKyvTQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724624733930?e=1740614400&v=beta&t=dv2iKSWHsni6su6mk8F1J5Pw-hRcxTKiVH5AbcCiU_0" alt="Krish Gandhi" >
 									</a>
 								  </div>
-								  <a href="index.html" class="logo"><strong>Krish Gandhi</strong> Portfolio Website</a>
+								  <a href="/" class="logo"><strong>Krish Gandhi</strong> Portfolio Website</a>
 								</div>
 								<ul class="icons">
 								  <li><a href="https://www.linkedin.com/in/krish-gandhi-73b47a244/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
@@ -51,7 +51,7 @@
 										I am currently seeking internship opportunities for Summer 2025. If you are interested, don't hesitate to reach out!
 									</p>
 									<ul class="actions">
-										<li><a href="suggest.html" class="button big">Suggest A Project</a></li> 
+										<li><a href="/suggest.html" class="button big">Suggest A Project</a></li> 
 										<li><a href="#Projects" class="button big">My Projects</a></li>
 									</ul>
 								</div>
@@ -77,7 +77,7 @@
 											<span class="icon solid fa-cloud"></span>
 											<div class="content">
 												<h3>Cloud Computing</h3>
-												<p>Snowflake, AWS EC2, AWS S3, AWS Glue, AWS Lambda, AWS Step Functions, AWS Textract
+												<p>Snowflake, AWS, GCP
 												</p>
 											</div>
 										</article>
@@ -132,8 +132,8 @@
 											<option value="">Filter by Programming Language</option>
 											<option value="py">Python</option>
 											<option value="c">C/C++</option>
-											<option value="hcss">HTML/CSS</option>
-											<option value="js">JavaScript</option>
+											<option value="hcss">HTML/CSS/JavaScript</option>
+											<!-- <option value="js">JavaScript</option> -->
 											<option value="sv">SystemVerilog</option>
 										</select>
 
@@ -142,7 +142,8 @@
 											<option value="doc">Docker</option>
 											<option value="jen">Jenkins</option>
 											<option value="gha">GitHub Actions</option>
-											<option value="aws">AWS</option>
+											<option value="aws">Amazon Web Services</option>
+											<option value="gcp">Google Cloud Platform</option>
 										</select>
 
 										<select id="dbFilter">
@@ -152,88 +153,46 @@
 										</select>
 									</div>
 									<div class="posts">
-										<article data-domain="" data-industry="comp" data-lang="py" data-devops="" data-db="">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Visualization of Different Machine Learning Algos</h3>
-											<p>
-												
-											</p>
-											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
-											</ul><ul></ul>
-										</article>
-										<article data-domain="" data-industry="fin" data-lang="py" data-devops="" data-db="">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Easy Algorithmic Trading Strategy Backtester/Builder</h3>
-											<p>
-												
-											</p>
-											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
-											</ul><ul></ul>
-										</article>
 										<article data-domain="" data-industry="fin" data-lang="c" data-devops="" data-db="mon">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
+											<a href="/matching-engine" class="image"><img src="/images/comingSoon.jpg" alt="" /></a>
 											<h3>Event-Driven Order Matching Engine</h3>
 											<p>
-												
+												I developed a high-performance matching engine in C++. My next goal is to 
+												create Python bindings for this engine and build an 
+												interactive web-based interface, making it accessible for users to experiment with, 
+												visualize order flows, and simulate market scenarios in real-time. 
 											</p>
 											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
+												<li><a href="/matching-engine" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
-										<article data-domain="ml" data-industry="gt" data-lang="py" data-devops="" data-db="mon">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Online Poker Bot</h3>
+										<article data-domain="ai" data-industry="comp" data-lang="py" data-devops="gcp" data-db="">
+											<a href="/multi-lingual-translator-and-summarizer" class="image"><img src="/images/previews/translatorAndSummarizer.png" alt="" /></a>
+											<h3>AI Multi-Lingual Translator and Summarizer</h3>
 											<p>
-												
+												This project was made by utilizing Facebook's mbart-large-50-many-to-many-mmt model 
+												hosted by Hugging Face and Google's gemma-2-2b-it model, which I am currently hosting model
+												thru Google Cloud Platform's Vertex AI platform.
 											</p>
 											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
+												<li><a href="/multi-lingual-translator-and-summarizer" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
-										<article data-domain="" data-industry="fin" data-lang="py" data-devops="" data-db="">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Stock Ticker Analysis</h3>
+										<article data-domain="" data-industry="comp" data-lang="" data-devops="" data-db="">
+											<a href="/ssh-server" class="image"><img src="/images/previews/sshServer.png" alt="" /></a>
+											<h3>OpenSSH Server on Windows 11</h3>
 											<p>
-												
+												I recently bought a new PC running Windows 11. While trying to set it
+												up as an SSH server, I quickly found out there isn't a centralized
+												place for OpenSSH tutorials. This blog will serve as a step-by-step
+												guide to setting up a OpenSSH server on Windows 11.
 											</p>
 											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
+												<li><a href="/ssh-server" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
-										<article data-domain="em" data-industry="fin" data-lang="c" data-devops="" data-db="mongo">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Data Feed Arbitrage</h3>
-											<p>
-												
-											</p>
-											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
-											</ul><ul></ul>
-										</article>
-										<article data-domain="" data-industry="fin" data-lang="py" data-devops="" data-db="mon">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Sports Betting Arbitrage Strategy</h3>
-											<p>
-												
-											</p>
-											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
-											</ul><ul></ul>
-										</article>
-										<article data-domain="" data-industry="comp" data-lang="py" data-devops="" data-db="">
-											<a href="#" class="image"><img src="images/comingSoon.jpg" alt="" /></a>
-											<h3>Signal Processing Calculator</h3>
-											<p>
-												
-											</p>
-											<ul class="actions">
-												<!-- <li><a href="#" class="button">More</a></li> -->
-											</ul><ul></ul>
-										</article>
-										<article data-domain="fed" data-lang="hcss" data-db="mon">
-											<a href="#" class="image"><img src="images/previews/site.png" alt="" /></a>
+										<article data-domain="fed" data-lang="hcss">
+											<a href="/" class="image"><img src="/images/previews/site.png" alt="" /></a>
 											<h3>Portfolio Website</h3>
 											<p>
 												This is the page you're looking at now! I build this for the 
@@ -242,11 +201,11 @@
 												but I may eventually move this project to AWS Amplify. 
 											</p>
 											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
+												<li><a href="/" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
 										<article data-domain="em" data-lang="sv">
-											<a href="doodle-jump.html" class="image"><img src="images/previews/doodleJump.png" alt="" /></a>
+											<a href="/doodle-jump" class="image"><img src="/images/previews/doodleJump.png" alt="" /></a>
 											<h3>Doodle Jump on an FPGA</h3>
 											<p>
 												I implemented Doodle Jump on a 
@@ -257,29 +216,29 @@
 												from a keyboard and VGA/HDMI output. Who doesn't love Doodle Jump?
 											</p>
 											<ul class="actions">
-												<li><a href="doodle-jump.html" class="button">More</a></li>
+												<li><a href="/doodle-jump" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
 										<article data-industry="fin" data-lang="c" data-devops="jen">
-											<a href="automatic-algorithm-trading-strategy-backtesting-pipeline.html" class="image"><img src="images/previews/autoBacktest.png" alt="" /></a>
+											<a href="/automatic-algorithm-trading-strategy-backtesting-pipeline" class="image"><img src="/images/previews/autoBacktest.png" alt="" /></a>
 											<h3>Automatic Algorithm Trading Strategy Backtesting Pipeline</h3>
 											<p>Using an Ubuntu VM, Jenkins, and Strategy Studios, I build a
 												CI/CD pipeline to automatically pull and backtest algorithmic
 												trading strategies, and push the results back to GitLab. 
 											</p>
 											<ul class="actions">
-												<li><a href="automatic-algorithm-trading-strategy-backtesting-pipeline.html" class="button">More</a></li>
+												<li><a href="/automatic-algorithm-trading-strategy-backtesting-pipeline" class="button">More</a></li>
 											</ul><ul></ul>
 										</article>
 										<article data-domain="ml" data-industry="comp" data-lang="py">
-											<a href="virtual-whiteboard.html" class="image"><img src="images/previews/virtualWhiteboard.png" alt="" /></a>
+											<a href="/virtual-whiteboard" class="image"><img src="/images/previews/virtualWhiteboard.png" alt="" /></a>
 											<h3>Virtual Whiteboard</h3>
 											<p>Utilizing OpenCV and Google's Mediapipe, I build an application that uses the 
 												user's device's camera. This program can track the user's hand(s) and use them 
 												to control the screen like a whiteboard.
 											</p>
 											<ul class="actions">
-												<li><a href="virtual-whiteboard.html" class="button">More</a></li>
+												<li><a href="/virtual-whiteboard" class="button">More</a></li>
 											</ul>
 											<ul></ul>
 										</article>
@@ -365,24 +324,24 @@
 					<!-- Sidebar -->
 					<div id="sidebar-container"></div>
 					<script>
-						fetch('sidebar.html')
+						fetch('/sidebar.html')
 							.then(response => response.text())
 							.then(data => {
 								document.getElementById('sidebar-container').innerHTML = data;
 								// Re-initialize the main.js functionality after loading the sidebar
 								var script = document.createElement('script');
-								script.src = 'assets/js/main.js';
+								script.src = '/assets/js/main.js';
 								document.body.appendChild(script);
 							}); 
 					</script>
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>
