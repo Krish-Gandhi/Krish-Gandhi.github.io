@@ -47,7 +47,11 @@
                                         </p>
                                         <p><strong>Current Tech Stack:</strong> C++</p>
                                         <p>
-                                            
+                                            The end goal for this project is to create a web app with 3
+                                            instances of the engine. I have already implemented the matching engine
+                                            in C++ and I will build the web app using Streamlit. This means I will have
+                                            to create a Python module that calls the C++ code using Python bindings,
+                                            which is the next step of this project. 
                                         </p>
                                         <p><strong>Source Code: </strong><a href="https://github.com/Krish-Gandhi/EventDrivenOrderMatchingEngine" target="_blank" rel="noopener noreferrer">Git Repository</a></p>
                                         <!-- <p><strong>Live Link: </strong><a href="" target="_blank" rel="noopener noreferrer">Project Title</a></p> -->
@@ -61,31 +65,29 @@
                                     </div>
                                 </div>
                                 <hr/>
-                                <h3>Features</h3>
+                                <h3>Matching Engine Features</h3>
                                 <p>
                                     <ul>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
+                                        <li>
+                                            <strong>Multiple Order Types</strong> - The engine currently supports market orders, limit orders,
+                                            stop orders, stop-limit orders, and Fill-Or-Kill market orders.                                        
+                                        </li>
+                                        <li><strong>Summary of Transaction</strong> - The engine also provides a summary of each transaction.</li>
+                                        <li>
+                                            <strong>Order Visibility</strong> - The engine supports orders with "public" or "hidden" visibility
+                                            and correctly sorts them in the order book.
+                                        </li>
                                     </ul>
                                 </p>
-                                <h3>Design Decisions</h3>
+                                <h3>Next Steps</h3>
                                 <p>
-                                    Nunc lacinia ante nunc ac lobortis. 
-                                    Interdum adipiscing gravida odio porttitor sem non 
-                                    mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
-                                    Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
-                                    integer ornare praesent commodo adipiscing arcu in massa commodo 
-                                    lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
-                                    viverra nibh in adipiscing blandit tempus accumsan.
-                                </p>
-                                <h3>Possible Future Updates</h3>
-                                <p>
-                                    <ul>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                    </ul>
+                                    The immediate next steps of this project are:
+                                    <ol>
+                                        <li>Turn the C++ class into a Python module via Python bindings.</li>
+                                        <li>Implement the Python module into a web app via Streamlit.</li>
+                                        <li>Implement a database (potentially MongoDB?) into the web app, so all users can see and make orders to the same order book.</li>
+                                        <li>Deploy the web app on the Streamlit Community Cloud to save on costs.</li>
+                                    </ol>
                                 </p>
                             </section>
 						</div>
