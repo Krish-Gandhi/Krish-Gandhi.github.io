@@ -360,15 +360,7 @@
 						}
 						initializeSidebar();
 						window.addEventListener('scroll', function() {
-							// Get sidebar and check if it's behaving correctly
-							const sidebar = document.querySelector('#sidebar .inner');
-							const isScrolledPastTop = window.scrollY > 0;
-							
-							// If sidebar isn't fixed when it should be, reinitialize
-							if (isScrolledPastTop && sidebar && 
-								(!sidebar.style.position || sidebar.style.position !== 'fixed')) {
-								initializeSidebar();
-							}
+							initializeSidebar();
 						}, { passive: true });
 					</script>
 			</div>
