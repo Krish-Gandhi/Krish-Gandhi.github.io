@@ -347,21 +347,15 @@
 					<!-- Sidebar -->
 					<div id="sidebar-container"></div>
 					<script>
-						function initializeSidebar() {
-							fetch('/sidebar.html')
-								.then(response => response.text())
-								.then(data => {
-									document.getElementById('sidebar-container').innerHTML = data;
-									// Re-initialize the main.js functionality after loading the sidebar
-									var script = document.createElement('script');
-									script.src = '/assets/js/main.js';
-									document.body.appendChild(script);
-								}); 
-						}
-						initializeSidebar();
-						window.addEventListener('scroll', function() {
-							initializeSidebar();
-						}, { passive: true });
+						fetch('/sidebar.html')
+							.then(response => response.text())
+							.then(data => {
+								document.getElementById('sidebar-container').innerHTML = data;
+								// Re-initialize the main.js functionality after loading the sidebar
+								var script = document.createElement('script');
+								script.src = '/assets/js/main.js';
+								document.body.appendChild(script);
+							}); 
 					</script>
 			</div>
 
