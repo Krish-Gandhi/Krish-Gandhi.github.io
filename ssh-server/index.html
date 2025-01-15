@@ -36,47 +36,92 @@
 								</ul>
 							</header>
                             <section>
-                                <h1>THIS PAGE IS UNDER CONSTRUCTION</h1>
-                                <h2>Come back later!! :)</h2>
-                                <!-- <p><strong>Motivation:</strong> Lorem ipsum dolor sit amet</p>
-                                <p><strong>Tech Stack:</strong> Lorem, ipsum, dolor, sit, amet</p>
-                                <p> 
-                                    Nunc lacinia ante nunc ac lobortis. 
-                                    Interdum adipiscing gravida odio porttitor sem non 
-                                    mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
-                                    Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
-                                    integer ornare praesent commodo adipiscing arcu in massa commodo 
-                                    lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
-                                    viverra nibh in adipiscing blandit tempus accumsan.
-                                </p>
+                                <h1>OpenSSH Server on Windows 11</h1>
+                                <p>
+									<strong>Motivation:</strong> I recently bought a new PC and wanted to set it up as a SSH server, so
+									I could ssh into it from my laptop.
+									However, I found it difficult to find the resources to setup/debug the server. I am writing this
+									blog as a one-stop tutorial to help people set up their OpenSSH servers on Windows 11.
+								</p>
                                 <hr/>
-                                <h3>Features</h3>
-                                <p>
-                                    <ul>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                    </ul>
-                                </p>
-                                <h3>Design Decisions</h3>
-                                <p>
-                                    Nunc lacinia ante nunc ac lobortis. 
-                                    Interdum adipiscing gravida odio porttitor sem non 
-                                    mi integer non faucibus ornare mi ut ante amet placerat aliquet. 
-                                    Volutpat commodo eu sed ante lacinia. Sapien a lorem in 
-                                    integer ornare praesent commodo adipiscing arcu in massa commodo 
-                                    lorem accumsan at odio massa ac ac. Semper adipiscing varius montes 
-                                    viverra nibh in adipiscing blandit tempus accumsan.
-                                </p>
-                                <h3>Possible Future Updates</h3>
-                                <p>
-                                    <ul>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                        <li><strong></strong> - </li>
-                                    </ul>
-                                </p> -->
-                            </section>
+                                <h1>Setting Up an OpenSSH Server on Windows 11</h1>
+                                <h2>Step 1: Installation</h2>
+								<p>Install the OpenSSH server using PowerShell by running PowerShell as an administrator and running the following command.</p>
+								<pre><code>Add-WindowsCapability -Online -Name OpenSSH.Server*</code></pre>
+								<p>Confirm the installation by running the following command.</p>
+								<pre><code>Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'</code></pre>
+								<p>If the output looks like this, the OpenSSH server is installed.</p>
+								<pre><code>PS C:\WINDOWS\system32> Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'
+
+
+Name  : OpenSSH.Server~~~~0.0.1.0
+State : Installed
+</code></pre>
+								<h2>Step 2: Configuration</h2>
+								<p>First, check the status of the SSH server service by running the following command.</p>
+								<pre><code>Get-Service -Name *ssh*</code></pre>
+								<p>The output should look like this. If the SSH agent is also installed, it will also appear here.</p>
+								<pre><code>PS C:\WINDOWS\system32> Get-Service -Name *ssh*
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  ssh-agent          OpenSSH Authentication Agent
+Stopped  sshd               OpenSSH SSH Server
+</code></pre>
+								<p>For convenience, set the sshd service to the automatically start. Then, start the service. Do this by running these commands.</p>
+								<pre><code>Set-Service -Name sshd -StartupType 'Automatic'
+Start-Service sshd</code></pre>
+								<p>Finally, add a firewall rule to allow SSH traffic through port 22.</p>
+								<pre><code>New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</code></pre>
+								<h2>(Optional, but Recommended) Step 3: Switch from CMD to PowerShell</h2>
+								<p>The default terminal for a SSH server is the CMD. To switch it to PowerShell, run the following command.</p>
+								<pre><code>New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force</code></pre>
+								<h2>(Optional, but Recommended) Step 4: Configure Key Based Authorization</h2>
+								<p>Personally, I use my Yubikey 5 to authenitcate into my SSH server. To make this possible we need to do a few things. Start by opening the server configuration file by running the following command.</p>
+								<pre><code>notepad.exe $env:PROGRAMDATA\ssh\sshd_config</code></pre>
+								<p>To disable password authenication and enable key-based authenication, uncomment the following settings and set them as follows.</p>
+								<pre><code>PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no</code></pre>
+								<h3>If the user is NOT in the 'Administrator' group:</h3>
+								<p>Uncomment the following line in the sshd_config file.</p>
+								<pre><code>AuthorizedKeysFile	.ssh/authorized_keys</code></pre>
+								<p>The <code>.ssh</code> folder and <code>authorized_keys</code> file must be created, as they don't exist by default. Run these commands back in the PowerShell terminal to create these and open the file.</p>
+								<pre><code>mkdir "$HOME\.ssh"
+$authorizedKeyFilePath = “$HOME\.ssh\authorized_keys”
+New-Item $authorizedKeyFilePath
+notepad.exe $authorizedKeyFilePath</code></pre>
+								<p>Paste the public key you want to use into this file. Save and close this file.</p>
+								<p>Next, make sure the file has the correct permissions. Only the system account should be able to access it. Do this by running these commands.</p>
+								<pre><code>icacls.exe $authorizedKeyFilePath /remove “NT AUTHORITY\Authenticated Users”
+icacls.exe $authorizedKeyFilePath /inheritance:r
+Get-Acl “$env:ProgramData\ssh\ssh_host_rsa_key” | Set-Acl $authorizedKeyFilePath</code></pre>
+								<p>Finally, restart the SSH server using this command.</p>
+								<pre><code>Restart-Service -Name sshd</code></pre>
+								<p>Congrats! Your SSH server is now set up and ready to be accessed!</p>
+								<h3>If the user is in the 'Administrator' group:</h3>
+								<p>Uncomment the following line in the sshd_config file.</p>
+								<pre><code>Match Group administrators
+	AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys</code></pre>
+								<p>The <code>administrators_authorized_keys</code> file must be created, as it doesn't exist by default. Run these commands back in the PowerShell terminal to create and open this file.</p>
+								<pre><code>$authorizedKeyFilePath = “$env:ProgramData\ssh\administrators_authorized_keys”
+New-Item $authorizedKeyFilePath
+notepad.exe $authorizedKeyFilePath</code></pre>
+								<p>Paste the public key you want to use into this file. Save and close this file.</p>
+								<p>Next, make sure the file has the correct permissions. Only the system account should be able to access it. Do this by running these commands.</p>
+								<pre><code>icacls.exe $authorizedKeyFilePath /remove “NT AUTHORITY\Authenticated Users”
+icacls.exe $authorizedKeyFilePath /inheritance:r
+Get-Acl “$env:ProgramData\ssh\ssh_host_rsa_key” | Set-Acl $authorizedKeyFilePath</code></pre>
+								<p>Finally, restart the SSH server using this command.</p>
+								<pre><code>Restart-Service -Name sshd</code></pre>
+								<p>Congrats! Your SSH server is now set up and ready to be accessed!</p>
+								<hr/>
+								<p>Sources Used:<br>
+									<a href="https://gist.github.com/teocci/5a96568ab9bf93a592d7a1a237ebb6ea" target="_blank" rel="noopener noreferrer">teocci's GitHub Gist</a> |
+									<a href="https://dev.to/rkttu/set-up-an-ssh-server-in-windows-10-native-way-22d9" target="_blank" rel="noopener noreferrer">Jeong Hyun Nam's DEV Blog Post</a> |
+									<a href="https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell&pivots=windows-server-2022" target="_blank" rel="noopener noreferrer">Official Microsoft OpenSSH "Getting Started" Page</a>
+								</p>
+							</section>
 						</div>
 					</div>
                     <!-- Sidebar -->
