@@ -119,12 +119,12 @@
 						</div>
 					</div>
                     <!-- Sidebar -->
-					<div id="sidebar-container"></div>
+					<div id="sidebar"></div>
 					<script>
 						fetch('/sidebar.html')
 							.then(response => response.text())
 							.then(data => {
-								document.getElementById('sidebar-container').innerHTML = data;
+								document.getElementById('sidebar').innerHTML = data;
 								// Re-initialize the main.js functionality after loading the sidebar
 								var script = document.createElement('script');
 								script.src = '/assets/js/main.js';
