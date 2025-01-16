@@ -173,7 +173,7 @@
 			$(window).on('load', function() {
 				setTimeout(function() {
 					$window.trigger('resize.sidebar-lock'); // Force sidebar resize
-				}, 100); // Adjust the timeout if necessary
+				}, 300); // Adjust the timeout if necessary
 			});	
 	// Menu.
 		var $menu = $('#menu'),
