@@ -169,7 +169,12 @@
 							$window.trigger('scroll.sidebar-lock');
 					})
 					.trigger('resize.sidebar-lock');
-			});			
+			});		
+			$(window).on('load', function() {
+				setTimeout(function() {
+					$window.trigger('resize.sidebar-lock'); // Force sidebar resize
+				}, 100); // Adjust the timeout if necessary
+			});	
 	// Menu.
 		var $menu = $('#menu'),
 			$menu_openers = $menu.children('ul').find('.opener');
@@ -186,30 +191,4 @@
 						$window.triggerHandler('resize.sidebar-lock');
 				});
 			});
-})(jQuery);
-
-(function($) {
-    var $window = $(window),
-        $sidebar = $('#sidebar'),
-        $sidebar_inner = $sidebar.children('.inner');
-
-    // Adjust sidebar height to be sticky at the bottom
-    function adjustSidebarHeight() {
-        var windowHeight = $window.height();
-        var sidebarOffset = $sidebar.offset().top;
-        var sidebarHeight = $sidebar_inner.outerHeight();
-        var maxHeight = windowHeight - sidebarOffset;
-        
-        if (sidebarHeight < maxHeight) {
-            $sidebar_inner.css('min-height', maxHeight);
-        } else {
-            $sidebar_inner.css('min-height', 'auto');
-        }
-    }
-
-    // Call the function when window is resized or loaded
-    $window.on('resize load', adjustSidebarHeight);
-    
-    // Initial adjustment
-    adjustSidebarHeight();
 })(jQuery);
