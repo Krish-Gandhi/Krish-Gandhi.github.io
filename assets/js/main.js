@@ -170,11 +170,11 @@
 					})
 					.trigger('resize.sidebar-lock');
 			});		
-			$(window).on('load', function() {
-				setTimeout(function() {
-					$window.trigger('resize.sidebar-lock'); // Force sidebar resize
-				}, 300); // Adjust the timeout if necessary
-			});	
+			// $(window).on('load', function() {
+			// 	setTimeout(function() {
+			// 		$window.trigger('resize.sidebar-lock'); // Force sidebar resize
+			// 	}, 300); // Adjust the timeout if necessary
+			// });	
 	// Menu.
 		var $menu = $('#menu'),
 			$menu_openers = $menu.children('ul').find('.opener');
