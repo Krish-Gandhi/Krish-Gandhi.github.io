@@ -10,8 +10,8 @@
 		$body = $('body');
 	// Breakpoints.
 		breakpoints({
-			xlarge:   [ '1441px',  '1680px' ],
-			large:    [ '981px',   '1440px' ],
+			xlarge:   [ '1679px',  '1680px' ],
+			large:    [ '981px',   '1679px' ],
 			medium:   [ '737px',   '980px'  ],
 			small:    [ '481px',   '736px'  ],
 			xsmall:   [ '361px',   '480px'  ],
