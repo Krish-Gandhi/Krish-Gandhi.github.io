@@ -135,6 +135,10 @@ Get-Acl “$env:ProgramData\ssh\ssh_host_rsa_key” | Set-Acl $authorizedKeyFile
 								var script = document.createElement('script');
 								script.src = '/assets/js/main.js';
 								document.body.appendChild(script);
+								//added
+								if (typeof resize !== 'undefined' && typeof resize.sidebarLock === 'function') {
+									setTimeout(() => $(window).trigger('resize.sidebar-lock'), 100);
+								}
 							}); 
 					</script>
 			</div>

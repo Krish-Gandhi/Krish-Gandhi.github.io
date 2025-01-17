@@ -10,8 +10,8 @@
 		$body = $('body');
 	// Breakpoints.
 		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
+			xlarge:   [ '1441px',  '1680px' ],
+			large:    [ '981px',   '1440px' ],
 			medium:   [ '737px',   '980px'  ],
 			small:    [ '481px',   '736px'  ],
 			xsmall:   [ '361px',   '480px'  ],
@@ -123,7 +123,7 @@
 		// Note: If you do anything to change the height of the sidebar's content, be sure to
 		// trigger 'resize.sidebar-lock' on $window so stuff doesn't get out of sync.
 			$window.on('load.sidebar-lock', function() {
-				var sh, wh, st;
+				var sh, wh, st, wl, sl;
 				// Reset scroll position to 0 if it's 1.
 					if ($window.scrollTop() == 1)
 						$window.scrollTop(0);
@@ -170,11 +170,11 @@
 					})
 					.trigger('resize.sidebar-lock');
 			});		
-			// $(window).on('load', function() {
-			// 	setTimeout(function() {
-			// 		$window.trigger('resize.sidebar-lock'); // Force sidebar resize
-			// 	}, 300); // Adjust the timeout if necessary
-			// });	
+			$(window).on('load', function() {
+				setTimeout(function() {
+					$window.trigger('resize.sidebar-lock'); // Force sidebar resize
+				}, 100); // Adjust the timeout if necessary
+			});	
 	// Menu.
 		var $menu = $('#menu'),
 			$menu_openers = $menu.children('ul').find('.opener');

@@ -106,7 +106,7 @@ body, input, select, textarea {
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
       font-size: 11pt; } }
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1440px) {
     body, input, select, textarea {
       font-size: 10pt; } }
   @media screen and (max-width: 360px) {
@@ -487,7 +487,7 @@ hr {
           margin-top: -3em; }
           .row.gtr-200.gtr-uniform > * {
             padding-top: 3em; } }
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1440px) {
     .row {
       display: flex;
       flex-wrap: wrap;
@@ -1878,7 +1878,7 @@ button,
       padding: 0 5em 0.1em 5em ; }
       #main > .inner > section {
         padding: 5em 0 3em 0 ; } }
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1440px) {
     #main > .inner {
       padding: 0 4em 0.1em 4em ; }
       #main > .inner > section {
@@ -2028,7 +2028,7 @@ button,
           font-size: 1.5rem; }
       #sidebar.inactive {
         margin-left: -24em; } }
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1440px) {
     #sidebar {
       box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
       height: 100%;
@@ -2080,6 +2080,7 @@ button,
         width: 5em; } }      
       #sidebar .inner[style*="position: fixed"] {
           background: #f5f6f7; 
+          overflow-y: auto
       }
 
 /* Header */
