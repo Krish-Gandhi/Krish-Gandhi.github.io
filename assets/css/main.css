@@ -2108,7 +2108,7 @@ button,
     font-size: 1.75em; }
   #header .icons {
     text-align: right; }
-  @media screen and (max-width: 1680px) {
+  @media screen and (max-width: 2580px) {
     #header {
       padding-top: 1em; } }
   @media screen and (max-width: 736px) {
